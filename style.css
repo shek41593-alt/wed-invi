@@ -1,0 +1,1298 @@
+/* ═══════════════════════════════════════════════════════════
+   WEDDING INVITATION — MUSLINE LUXURY STYLE SHEET
+   Messi & Antonella · 19 July 2026
+═══════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Dark Palette */
+    --dark-bg: #0E0A08;
+    --dark-mid: #1A1108;
+    --dark-card: #150E07;
+    --maroon: #5A0A1E;
+    --maroon-lt: #7D1030;
+    --burgundy: #3D0A18;
+
+    /* Gold Palette */
+    --gold-bright: #F0D78A;
+    --gold: #C9A24E;
+    --gold-warm: #E2B96A;
+    --gold-dk: #9A7228;
+
+    /* Cream */
+    --cream: #F8F0DC;
+    --cream-soft: #EFE3C4;
+    --cream-muted: rgba(248, 240, 220, 0.72);
+
+    /* Text */
+    --text-light: #F5E8CA;
+    --text-muted: rgba(245, 232, 202, 0.6);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', 'Cormorant Garamond', serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+.great-vibes {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.cinzel {
+    font-family: 'Cinzel', serif;
+}
+
+/* ─── UTILITY ─── */
+.hidden {
+    display: none !important;
+}
+
+/* ─────────────────────────────────────────
+   PETAL PARTICLES
+───────────────────────────────────────── */
+#petals-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    opacity: 0;
+    animation: petalFall linear infinite;
+    user-select: none;
+    pointer-events: none;
+    border-radius: 150% 0 150% 0;
+}
+
+.petal-pink {
+    background: radial-gradient(ellipse at 40% 35%, #F9C4CF 0%, #F08098 45%, #E06080 100%);
+    box-shadow: inset -2px -2px 4px rgba(180, 60, 80, 0.2);
+}
+
+.petal-light {
+    background: radial-gradient(ellipse at 40% 35%, #FDEEF1 0%, #F7C5CE 45%, #EDAAB8 100%);
+    box-shadow: inset -2px -2px 4px rgba(200, 100, 120, 0.15);
+}
+
+.petal-white {
+    background: radial-gradient(ellipse at 40% 35%, #FEFEFE 0%, #F5EEF0 45%, #E8DDE0 100%);
+    border-radius: 0 150% 0 150%;
+    box-shadow: inset -1px -1px 3px rgba(180, 160, 165, 0.15);
+}
+
+.petal-leaf {
+    background: radial-gradient(ellipse at 40% 35%, #A8C890 0%, #7AAA60 45%, #5A8A40 100%);
+    border-radius: 50% 0 50% 0;
+    box-shadow: inset -1px -1px 3px rgba(60, 100, 40, 0.2);
+}
+
+@keyframes petalFall {
+    0% {
+        transform: translateY(-80px) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(40px) rotate(160deg);
+        opacity: 0.75;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(108vh) translateX(-30px) rotate(310deg);
+        opacity: 0;
+    }
+}
+
+@keyframes petalFallAlt {
+    0% {
+        transform: translateY(-80px) translateX(0px) rotate(20deg);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(-50px) rotate(-140deg);
+        opacity: 0.75;
+    }
+
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateY(108vh) translateX(20px) rotate(-280deg);
+        opacity: 0;
+    }
+}
+
+/* ─────────────────────────────────────────
+   LILY FLOWERS — LANDING & SECTIONS
+───────────────────────────────────────── */
+
+/* Landing screen lilies */
+.landing-lily {
+    position: absolute;
+    width: 420px;
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: 3;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8));
+}
+
+.landing-lily-left {
+    bottom: -80px;
+    left: -80px;
+    transform: scaleX(-1) rotate(-12deg);
+    animation: lilyFloatL 8s ease-in-out infinite;
+}
+
+.landing-lily-right {
+    top: -80px;
+    right: -80px;
+    transform: rotate(-18deg);
+    animation: lilyFloatR 8s ease-in-out 4s infinite;
+}
+
+@keyframes lilyFloatL {
+
+    0%,
+    100% {
+        transform: scaleX(-1) rotate(-12deg) translateY(0px);
+    }
+
+    50% {
+        transform: scaleX(-1) rotate(-12deg) translateY(-14px);
+    }
+}
+
+@keyframes lilyFloatR {
+
+    0%,
+    100% {
+        transform: rotate(-18deg) translateY(0px);
+    }
+
+    50% {
+        transform: rotate(-18deg) translateY(-12px);
+    }
+}
+
+/* Inner section (hero / events) lilies */
+.section-lily {
+    position: absolute;
+    width: 340px;
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
+}
+
+.section-lily-left {
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1) rotate(-8deg);
+}
+
+.section-lily-right {
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%) rotate(8deg);
+}
+
+.events-lily {
+    opacity: 0.15;
+    width: 280px;
+}
+
+/* ─────────────────────────────────────────
+   ENVELOPE SCREEN
+───────────────────────────────────────── */
+#envelope-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: radial-gradient(ellipse at 50% 60%, #1C1208 0%, #0E0A08 70%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+    overflow: hidden;
+}
+
+#envelope-screen.opening {
+    pointer-events: none;
+}
+
+#envelope-screen.gone {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Corner Blossom */
+.corner-blossom {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.corner-tl {
+    top: 0;
+    left: 0;
+}
+
+.corner-tr {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.corner-bl {
+    bottom: 0;
+    left: 0;
+    transform: scaleY(-1);
+}
+
+.corner-br {
+    bottom: 0;
+    right: 0;
+    transform: scale(-1, -1);
+}
+
+/* Envelope Wrapper */
+#envelope-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+    z-index: 10;
+    perspective: 1200px;
+}
+
+/* Envelope Image */
+#envelope {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-5deg);
+    transition: transform 0.15s ease-out;
+    filter: drop-shadow(0 24px 48px rgba(200, 150, 60, 0.25)) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+}
+
+#env-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: transparent;
+    clip-path: inset(16.5% round 2%);
+    transform: scale(1.45);
+}
+
+/* Wax Seal */
+#wax-seal {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(240, 215, 138, 0.5);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
+}
+
+#wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.14);
+}
+
+#wax-seal:focus {
+    outline: none;
+}
+
+.seal-pulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(240, 215, 138, 0.7);
+    animation: sealPulse 2.2s ease-out infinite;
+    pointer-events: none;
+}
+
+.seal-pulse-2 {
+    inset: -14px;
+    border-color: rgba(240, 215, 138, 0.3);
+    animation: sealPulse 2.2s ease-out 0.7s infinite;
+}
+
+@keyframes sealPulse {
+    0% {
+        transform: scale(0.85);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+/* Text below envelope */
+.env-text-block {
+    text-align: center;
+    animation: fadeUp 1.2s ease 0.4s both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.env-invited {
+    font-size: clamp(2.8rem, 7vw, 4.2rem);
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+}
+
+.env-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cream-muted);
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.env-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.divider-line {
+    display: block;
+    width: 70px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold) 60%, transparent);
+}
+
+.divider-ornament {
+    color: var(--gold-warm);
+    font-size: 0.9rem;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+/* ─────────────────────────────────────────
+   INVITATION MAIN CONTENT
+───────────────────────────────────────── */
+body.invitation-open {
+    background: var(--dark-bg);
+}
+
+#invitation {
+    animation: fadeSlideIn 1.2s ease both;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--dark-mid);
+    box-shadow:
+        0 0 0 1px rgba(201, 162, 78, 0.25),
+        0 0 0 3px var(--dark-mid),
+        0 0 0 4px rgba(201, 162, 78, 0.15),
+        0 40px 100px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+#invitation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold-warm), transparent);
+    z-index: 5;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─────────────────────────────────────────
+   SECTION BACKGROUNDS
+───────────────────────────────────────── */
+.section-cream {
+    background: var(--dark-mid);
+    position: relative;
+    padding: 90px 60px;
+    overflow: hidden;
+}
+
+.section-cream::before,
+.section-cream::after {
+    display: none;
+}
+
+.section-green {
+    background: linear-gradient(180deg, var(--burgundy) 0%, var(--maroon) 60%, #2A0612 100%);
+    position: relative;
+    padding: 90px 40px;
+    overflow: hidden;
+}
+
+/* subtle texture overlay for sections */
+.section-cream::after {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(-45deg,
+            rgba(201, 162, 78, 0.015) 0, rgba(201, 162, 78, 0.015) 1px,
+            transparent 1px, transparent 8px);
+    pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   BOTANICAL PANELS
+───────────────────────────────────────── */
+.botanical-left,
+.botanical-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 180px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+.botanical-left {
+    left: 0;
+    background-position: right center;
+}
+
+.botanical-right {
+    right: 0;
+    background-position: left center;
+}
+
+.botanical-left {
+    background-image:
+        radial-gradient(ellipse 60px 140px at 30% 30%, #C09B5A 0%, transparent 70%),
+        radial-gradient(ellipse 40px 90px at 10% 60%, #9A7840 0%, transparent 70%),
+        radial-gradient(ellipse 50px 120px at 50% 70%, #D4AE6E 0%, transparent 70%);
+}
+
+.botanical-right {
+    background-image:
+        radial-gradient(ellipse 60px 140px at 70% 20%, #C09B5A 0%, transparent 70%),
+        radial-gradient(ellipse 40px 90px at 90% 55%, #9A7840 0%, transparent 70%),
+        radial-gradient(ellipse 50px 120px at 50% 75%, #D4AE6E 0%, transparent 70%);
+}
+
+/* ─────────────────────────────────────────
+   HERO CONTENT
+───────────────────────────────────────── */
+.hero-content {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.ganesha-icon {
+    width: 90px;
+    height: auto;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 20px rgba(201, 162, 78, 0.4));
+}
+
+.shree-namah {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold-warm);
+    letter-spacing: 0.12em;
+    margin-bottom: 32px;
+}
+
+/* decorative line before invite text */
+.invite-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--cream-muted);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.invite-text::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 20px;
+    opacity: 0.6;
+}
+
+.groom-name,
+.bride-name {
+    font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    background: linear-gradient(180deg,
+            #FFF4C4 0%,
+            #EAD379 30%,
+            #A8711E 48%,
+            #79480B 50%,
+            #FDE694 54%,
+            #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin: 0;
+    filter: drop-shadow(0 2px 12px rgba(201, 162, 78, 0.3));
+}
+
+.parent-names {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.88rem;
+    color: var(--cream-muted);
+    letter-spacing: 0.08em;
+    margin: 8px 0 20px;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.with-text {
+    font-size: 2.6rem;
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin: 4px 0 12px;
+}
+
+/* ─────────────────────────────────────────
+   SCRATCH CARD
+───────────────────────────────────────── */
+.scratch-wrapper {
+    text-align: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.scratch-container {
+    position: relative;
+    width: 440px;
+    max-width: 90vw;
+    height: 160px;
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: crosshair;
+    box-shadow:
+        0 0 0 1px rgba(201, 162, 78, 0.3),
+        0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+#scratch-reveal {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1A1108 0%, #2C1A10 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.scratch-save {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.scratch-date {
+    font-size: 3.2rem;
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+#scratch-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: crosshair;
+    border-radius: 4px;
+}
+
+.scratch-hint {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    margin-top: 14px;
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+/* ─────────────────────────────────────────
+   EVENTS SECTION
+───────────────────────────────────────── */
+.section-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 60px;
+    display: block;
+    filter: drop-shadow(0 2px 16px rgba(201, 162, 78, 0.25));
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background: linear-gradient(145deg, #1A0E0A 0%, #130A06 100%);
+    border: 1px solid rgba(201, 162, 78, 0.25);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    animation-delay: var(--card-delay, 0s);
+}
+
+/* subtle glow inset border */
+.event-card::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border: 1px solid rgba(201, 162, 78, 0.1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), 0 0 20px rgba(201, 162, 78, 0.08);
+    border-color: rgba(201, 162, 78, 0.45);
+}
+
+/* Event photo section — RE-ENABLED */
+.event-card-img {
+    height: 240px;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    display: block;
+}
+
+.event-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13, 7, 4, 0.85) 0%, rgba(13, 7, 4, 0.1) 55%);
+}
+
+.sangeet-bg {
+    background-image: url('assets/event1.png');
+}
+
+.gavdev-bg {
+    background-image: url('assets/event2.png');
+}
+
+.haldi-bg {
+    background-image: url('assets/event3.png');
+    background-position: center 20%;
+}
+
+.sapthapadi-bg {
+    background-image: url('assets/event4.png');
+    background-position: center 15%;
+}
+
+.varmala-bg {
+    background-image: url('assets/event5.png');
+    background-position: center 10%;
+}
+
+.event-card-body {
+    padding: 24px 28px 28px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.event-name {
+    font-size: 2.8rem;
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+    line-height: 1.15;
+}
+
+/* gold divider under event name */
+.event-name::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-warm), transparent);
+    margin: 12px auto 16px;
+}
+
+.event-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--cream-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.event-detail {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    opacity: 0.8;
+}
+
+.detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--cream-soft);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
+
+/* ─────────────────────────────────────────
+   AWAITING PRESENCE
+───────────────────────────────────────── */
+.awaiting-content {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.awaiting-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--cream-muted);
+    margin-top: 12px;
+}
+
+.families-wrapper {
+    text-align: center;
+    padding: 48px 40px;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 1px solid rgba(201, 162, 78, 0.2);
+    position: relative;
+}
+
+.families-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(201, 162, 78, 0.08);
+    pointer-events: none;
+}
+
+.families-with {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.families-title {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.families-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.families-list p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--cream-muted);
+    letter-spacing: 0.06em;
+}
+
+/* ─────────────────────────────────────────
+   VENUE SECTION
+───────────────────────────────────────── */
+.venue-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream-muted);
+    text-align: center;
+    letter-spacing: 0.06em;
+    margin-bottom: 40px;
+}
+
+.map-wrapper {
+    max-width: 860px;
+    margin: 0 auto 32px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 162, 78, 0.25);
+}
+
+.map-wrapper iframe {
+    display: block;
+}
+
+.btn-directions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-lt) 50%, var(--maroon) 100%);
+    color: var(--gold-bright);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    box-shadow: 0 8px 24px rgba(90, 10, 30, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    margin-top: 8px;
+}
+
+.btn-directions:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(90, 10, 30, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+#footer {
+    background: linear-gradient(180deg, var(--burgundy) 0%, var(--maroon) 50%, #0E0A08 100%);
+    text-align: center;
+    padding: 80px 40px 60px;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+#footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-warm), transparent);
+}
+
+.footer-with {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.footer-names {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    background: linear-gradient(180deg, #FFF4C4 0%, #EAD379 30%, #A8711E 48%, #79480B 50%, #FDE694 54%, #FFFCE1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.footer-emoji {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.footer-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--cream-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.footer-hashtag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* ─────────────────────────────────────────
+   AUDIO BUTTON
+───────────────────────────────────────── */
+#audio-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 900;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    background: rgba(13, 7, 4, 0.88);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#audio-btn:hover {
+    transform: scale(1.1);
+    background: rgba(13, 7, 4, 0.98);
+    border-color: rgba(201, 162, 78, 0.6);
+}
+
+/* ─────────────────────────────────────────
+   SCROLL REVEAL ANIMATIONS
+───────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.event-card.reveal {
+    transition-delay: var(--card-delay, 0s);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE DESIGN
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+    .landing-lily {
+        width: 320px;
+    }
+
+    .section-lily {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card:last-child {
+        grid-column: 1;
+        max-width: 100% !important;
+    }
+
+    .section-cream,
+    .section-green {
+        padding: 80px 24px;
+    }
+
+    .botanical-left,
+    .botanical-right {
+        width: 100px;
+        opacity: 0.15;
+    }
+
+    .corner-blossom {
+        width: 140px;
+        height: 140px;
+    }
+
+    #envelope {
+        width: 280px;
+        height: 260px;
+    }
+
+    .scratch-container {
+        width: 100%;
+        max-width: 380px;
+        height: 140px;
+    }
+
+    .landing-lily {
+        width: 240px;
+    }
+
+    .landing-lily-left {
+        left: -60px;
+        bottom: -60px;
+    }
+
+    .landing-lily-right {
+        right: -60px;
+        top: -60px;
+    }
+
+    .section-lily {
+        width: 180px;
+        opacity: 0.4;
+    }
+
+    .section-lily-left {
+        left: -40px;
+    }
+
+    .section-lily-right {
+        right: -40px;
+    }
+
+    .env-invited {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .section-cream,
+    .section-green {
+        padding: 60px 16px;
+    }
+
+    .groom-name,
+    .bride-name {
+        font-size: clamp(3.2rem, 12vw, 4rem);
+    }
+
+    .with-text {
+        font-size: 2.2rem;
+        margin: 8px 0;
+    }
+
+    .parent-names {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .event-name {
+        font-size: 2.4rem;
+    }
+
+    .families-title {
+        font-size: 2.4rem;
+    }
+
+    .footer-names {
+        font-size: 2.5rem;
+    }
+
+    .corner-blossom {
+        width: 90px;
+        height: 90px;
+    }
+
+    #envelope {
+        width: 230px;
+        height: 210px;
+    }
+
+    .env-invited {
+        font-size: 2.5rem;
+        margin-top: 10px;
+    }
+
+    .env-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+    }
+
+    .scratch-container {
+        height: 120px;
+    }
+
+    .scratch-date {
+        font-size: 2.5rem;
+    }
+
+    .btn-directions {
+        padding: 12px 28px;
+        font-size: 0.85rem;
+    }
+
+    .landing-lily {
+        width: 200px;
+    }
+
+    .landing-lily-left {
+        left: -40px;
+        bottom: -40px;
+    }
+
+    .landing-lily-right {
+        right: -40px;
+        top: -40px;
+    }
+
+    .section-lily {
+        width: 140px;
+        opacity: 0.3;
+    }
+
+    .section-lily-left {
+        left: -30px;
+    }
+
+    .section-lily-right {
+        right: -30px;
+    }
+}
