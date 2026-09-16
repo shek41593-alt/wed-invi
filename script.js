@@ -328,11 +328,13 @@ function fireConfettiPopper() {
     cvs.width = window.innerWidth;
     cvs.height = window.innerHeight;
 
-    // Load high quality flower images
+    // Load high quality flower images using Vite-resolved paths from the DOM
+    const leftEl = document.querySelector('.section-lily-left');
+    const rightEl = document.querySelector('.section-lily-right');
     const imgLeft = new Image();
-    imgLeft.src = 'assets/lily_left_transparent.png';
+    imgLeft.src = leftEl ? leftEl.src : '/assets/lily_left_transparent.png';
     const imgRight = new Image();
-    imgRight.src = 'assets/lily_right_transparent.png';
+    imgRight.src = rightEl ? rightEl.src : '/assets/lily_right_transparent.png';
 
     const scratchEl = document.getElementById('scratch-section');
     const rect = scratchEl ? scratchEl.getBoundingClientRect() : { left: cvs.width / 2, top: cvs.height / 2, width: 0, height: 0 };
